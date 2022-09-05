@@ -331,6 +331,8 @@ CallbackCondition:
         - tags
         - actions
         - extra-properties
+        - extraProperties
+        - extra_properties_key_prefix-owner
         - recipients
         - teams
         - priority
@@ -355,6 +357,8 @@ CallbackCondition:
     order:
       type: integer
       format: int32
+    isExtraPropertiesWithKey:
+      type: boolean
 
 ActionMapping:
   type: object

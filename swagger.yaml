@@ -8,10 +8,12 @@ info:
   description: Opsgenie OpenAPI Specification
   version: "2.0.0"
 # the domain of the service
-host: api.opsgenie.com
+host: api.eu.opsgenie.com
 # array of all schemes that your API supports
 schemes:
   - https
+consumes:
+  - application/json
 # format of the responses to the client (Accepts)
 produces:
   - application/json
