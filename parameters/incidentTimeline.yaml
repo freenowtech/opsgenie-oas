@@ -1,0 +1,6 @@
+IncidentIdentifier:
+  name: identifier
+  in: path
+  description: Identifier of incident which could be incident id
+  required: true
+  type: string

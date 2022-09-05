@@ -1,0 +1,59 @@
+##################
+#     REQUEST    #
+##################
+AddIncidentTimelineEntryPayload:
+  type: object
+  properties:
+    time:
+      type: string
+      format: date-time
+      description: Time of the entry
+    description:
+      $ref: '#/definitions/IncidentTimelineDescription'
+      description: The description of the incident timeline description
+
+##################
+#    RESPONSE    #
+##################
+AddIncidentTimelineEntryResponse:
+  type: object
+  allOf:
+    - $ref: '#/definitions/BaseResponse'
+    - properties:
+        data:
+          id:
+            type: string
+          group:
+            type: string
+          type:
+            type: string
+          eventTime:
+            type: string
+            format: date-time
+          hidden:
+            type: boolean
+          actor:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+          description:
+            $ref: '#/definitions/IncidentTimelineDescription'
+
+##################
+#      MODEL     #
+##################
+IncidentTimelineDescription:
+  type: object
+  description: The details about the timeline description
+  properties:
+    type:
+      type: string
+      enum:
+        - plain_text
+    content:
+      type: string
+      required: true
+      description: The content to describe the timeline change
