@@ -82,6 +82,23 @@ CloseIncidentPayload:
   allOf:
     - $ref: "#/definitions/IncidentActionPayload"
 
+AddIncidentDetailsPayload:
+  x-opsgenie-domain: incident
+  type: object
+  allOf:
+    - required:
+        - details
+    - properties:
+        details:
+          type: object
+          description: Map of key-value pairs to use as custom properties of the incident
+          additionalProperties:
+            type: string
+        note:
+          type: string
+          description: Additional note that will be added while creating the incident
+
+
 ##################
 #    RESPONSE    #
 ##################
