@@ -401,7 +401,6 @@ Responder:
   discriminator: type
   required:
     - type
-    - id
   properties:
     type:
       type: string
@@ -411,6 +410,8 @@ Responder:
         - escalation
         - schedule
     id:
+      type: string
+    name:
       type: string
 
 UserResponder:

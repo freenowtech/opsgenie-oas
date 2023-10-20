@@ -349,3 +349,43 @@
         $ref: "#/responses/TooManyRequest"
       default:
         $ref: "#/responses/GeneralError"
+
+/v1/incidents/{identifier}/responders:
+  post:
+    tags:
+      - incident
+    summary: Add Responder to Incident
+    description: Add Responder to Incident with given identifier
+    operationId: addIncidentResponder
+    externalDocs:
+      description: For more information
+      url: https://docs.opsgenie.com/docs/incident-api#add-responder-to-incident
+    x-collapse-params: AddIncidentResponderRequest
+    parameters:
+      - $ref: "#/parameters/IncidentIdentifier"
+      - $ref: "#/parameters/IncidentIdentifierType"
+      - name: body
+        in: body
+        description: Request payload of add incident responder
+        required: true
+        schema:
+          $ref: "#/definitions/AddIncidentResponderPayload"
+    responses:
+      "202":
+        $ref: "#/responses/Accepted"
+      "400":
+        $ref: "#/responses/BadRequest"
+      "401":
+        $ref: "#/responses/Unauthorized"
+      "402":
+        $ref: "#/responses/PaymentRequired"
+      "403":
+        $ref: "#/responses/Forbidden"
+      "404":
+        $ref: "#/responses/NotFound"
+      "422":
+        $ref: "#/responses/UnprocessableEntity"
+      "429":
+        $ref: "#/responses/TooManyRequest"
+      default:
+        $ref: "#/responses/GeneralError"

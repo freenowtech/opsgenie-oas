@@ -98,6 +98,20 @@ AddIncidentDetailsPayload:
           type: string
           description: Additional note that will be added while creating the incident
 
+AddIncidentResponderPayload:
+  x-opsgenie-domain: incident
+  type: object
+  allOf:
+    - required:
+        - responder
+    - properties:
+        responder:
+          type: array
+          items:
+            $ref: "#/definitions/Responder"
+        note:
+          type: string
+          description: Additional note that will be added while creating the incident
 
 ##################
 #    RESPONSE    #
